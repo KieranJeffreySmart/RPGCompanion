@@ -1,0 +1,4 @@
+RPGCompanion.Android.MainActivity, RPGCompanion.Android;md557cfe8c2deba412e5d2787b828ebf99b.MainActivity
+RPGCompanion.Android.MainActivity, RPGCompanion.Android, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md557cfe8c2deba412e5d2787b828ebf99b.MainActivity
+RPGCompanion.Android.MainActivity;md557cfe8c2deba412e5d2787b828ebf99b.MainActivity
+rpgcompanion.android.MainActivity;md557cfe8c2deba412e5d2787b828ebf99b.MainActivity

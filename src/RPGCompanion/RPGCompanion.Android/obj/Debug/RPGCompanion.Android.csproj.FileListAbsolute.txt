@@ -1,0 +1,15 @@
+D:\Work\Git\RPGCompanion\src\RPGCompanion\RPGCompanion.Android\bin\Debug\RPGCompanion.Android.dll
+D:\Work\Git\RPGCompanion\src\RPGCompanion\RPGCompanion.Android\bin\Debug\RPGCompanion.Android.pdb
+D:\Work\Git\RPGCompanion\src\RPGCompanion\RPGCompanion.Android\bin\Debug\RPGCompanion.Android.RPGCompanion.Android.apk
+D:\Work\Git\RPGCompanion\src\RPGCompanion\RPGCompanion.Android\bin\Debug\RPGCompanion.Android.RPGCompanion.Android-Signed.apk
+D:\Work\Git\RPGCompanion\src\RPGCompanion\RPGCompanion.Android\obj\Debug\RPGCompanion.Android.csprojResolveAssemblyReference.cache
+D:\Work\Git\RPGCompanion\src\RPGCompanion\RPGCompanion.Android\obj\Debug\RPGCompanion.Android.dll
+D:\Work\Git\RPGCompanion\src\RPGCompanion\RPGCompanion.Android\obj\Debug\RPGCompanion.Android.pdb
+D:\Work\Git\RPGCompanion\src\RPGCompanion\RPGCompanion.Android\obj\Debug\android\bin\RPGCompanion.Android.RPGCompanion.Android.apk
+D:\Work\Git\RPGCompanion\src\RPGCompanion\RPGCompanion.Android\obj\Debug\res\layout\main.xml
+D:\Work\Git\RPGCompanion\src\RPGCompanion\RPGCompanion.Android\obj\Debug\res\values\strings.xml
+D:\Work\Git\RPGCompanion\src\RPGCompanion\RPGCompanion.Android\obj\Debug\res\drawable\icon.png
+D:\Work\Git\RPGCompanion\src\RPGCompanion\RPGCompanion.Android\obj\Debug\R.cs.flag
+D:\Work\Git\RPGCompanion\src\RPGCompanion\RPGCompanion.Android\obj\Debug\uploadflags.txt
+D:\Work\Git\RPGCompanion\src\RPGCompanion\RPGCompanion.Android\obj\Debug\RPGCompanion.Android.dll.mdb
+D:\Work\Git\RPGCompanion\src\RPGCompanion\RPGCompanion.Android\bin\Debug\RPGCompanion.Android.dll.mdb

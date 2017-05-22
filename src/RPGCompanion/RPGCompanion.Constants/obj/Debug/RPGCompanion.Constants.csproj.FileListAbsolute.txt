@@ -1,0 +1,5 @@
+D:\Work\Git\RPGCompanion\src\RPGCompanion\RPGCompanion.Constants\bin\Debug\RPGCompanion.Constants.dll
+D:\Work\Git\RPGCompanion\src\RPGCompanion\RPGCompanion.Constants\bin\Debug\RPGCompanion.Constants.pdb
+D:\Work\Git\RPGCompanion\src\RPGCompanion\RPGCompanion.Constants\obj\Debug\RPGCompanion.Constants.dll
+D:\Work\Git\RPGCompanion\src\RPGCompanion\RPGCompanion.Constants\obj\Debug\RPGCompanion.Constants.pdb
+D:\Work\Git\RPGCompanion\src\RPGCompanion\RPGCompanion.Constants\obj\Debug\RPGCompanion.Constants.csprojResolveAssemblyReference.cache
