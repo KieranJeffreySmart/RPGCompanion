@@ -1,10 +1,11 @@
-﻿using RPGCompanion.Domain.Abstract;
-using RPGCompanion.Domain.Managers;
-using RPGCompanion.Domain.Repository;
-using RPGCompanion.Domain.Services;
-
-namespace RPGCompanion.Domain.Model
+﻿namespace RPGCompanion.Domain.Factories
 {
+    using System;
+    using Model.GameEntities;
+    using Model.Timeline;
+    using Model.Values;
+    using Repository;
+
     public class ItemFactory: IItemFactory
     {
         ITimelineManagerFactory _timelineManagerFactory;
@@ -17,7 +18,7 @@ namespace RPGCompanion.Domain.Model
         {
             var itemType = _itemTypeRepository.Get(itemTypeId);
             var unitType = _unitTypeRepository.Get(itemType.UnitTypeId);
-            return new Item(new Thing(new Timeline(), itemType.Character, new Name("thing")), new Unit(unitType, quantity));
+            return new Item(new Thing(Guid.NewGuid(), new Timeline(), itemType.Character, new Name("thing")), new Unit(unitType, quantity));
         }
     }
 }

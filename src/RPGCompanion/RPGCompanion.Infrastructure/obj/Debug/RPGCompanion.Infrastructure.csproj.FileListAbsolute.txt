@@ -1,0 +1,9 @@
+C:\Development\Git\RPGCompanion\src\RPGCompanion\RPGCompanion.Infrastructure\bin\Debug\RPGCompanion.Infrastructure.dll
+C:\Development\Git\RPGCompanion\src\RPGCompanion\RPGCompanion.Infrastructure\bin\Debug\RPGCompanion.Infrastructure.pdb
+C:\Development\Git\RPGCompanion\src\RPGCompanion\RPGCompanion.Infrastructure\bin\Debug\RPGCompanion.Application.dll
+C:\Development\Git\RPGCompanion\src\RPGCompanion\RPGCompanion.Infrastructure\bin\Debug\RPGCompanion.Domain.dll
+C:\Development\Git\RPGCompanion\src\RPGCompanion\RPGCompanion.Infrastructure\bin\Debug\RPGCompanion.Application.pdb
+C:\Development\Git\RPGCompanion\src\RPGCompanion\RPGCompanion.Infrastructure\bin\Debug\RPGCompanion.Domain.pdb
+C:\Development\Git\RPGCompanion\src\RPGCompanion\RPGCompanion.Infrastructure\obj\Debug\RPGCompanion.Infrastructure.csprojResolveAssemblyReference.cache
+C:\Development\Git\RPGCompanion\src\RPGCompanion\RPGCompanion.Infrastructure\obj\Debug\RPGCompanion.Infrastructure.dll
+C:\Development\Git\RPGCompanion\src\RPGCompanion\RPGCompanion.Infrastructure\obj\Debug\RPGCompanion.Infrastructure.pdb

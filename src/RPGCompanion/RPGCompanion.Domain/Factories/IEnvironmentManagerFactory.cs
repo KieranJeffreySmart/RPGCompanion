@@ -1,7 +1,7 @@
-﻿using RPGCompanion.Domain.Abstract;
-
-namespace RPGCompanion.Domain.Services
+﻿namespace RPGCompanion.Domain.Factories
 {
+    using Managers;
+
     public interface IEnvironmentManagerFactory
     {
         IEnvironmentManager Create();

@@ -2,10 +2,12 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using RPGCompanion.Domain.Abstract;
 
 namespace RPGCompanion.Domain.Repository
 {
+    using Model.Context.Types;
+    using Model.Values;
+
     public interface IItemTypeRepository
     {
         ItemType Get(long itemTypeId);

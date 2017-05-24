@@ -1,11 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26403.7
+VisualStudioVersion = 15.0.26430.6
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RPGCompanion.Web", "RPGCompanion.Web\RPGCompanion.Web.csproj", "{ABA70382-1CC5-4C54-AAC0-6DFD14989E18}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RPGCompanion.Domain", "RPGCompanion.Domain\RPGCompanion.Domain.csproj", "{FA3EF5A1-439B-44EC-BC43-F5707083AD01}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RPGCompanion.IdentityServer", "RPGCompanion.IdentityServer\RPGCompanion.IdentityServer.csproj", "{86F65490-2BEE-45D9-A145-5101A7245F26}"
 EndProject
@@ -13,11 +11,21 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RPGCompanion.Constants", "R
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RPGCompanion.Web.Core", "RPGCompanion.Web.Core\RPGCompanion.Web.Core.csproj", "{25926613-D0BA-4B17-A9F0-E37D20F7209C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RPGCompanion.Api", "RPGCompanion.Api\RPGCompanion.Api.csproj", "{81E10C1A-D0A8-4BAD-91C6-427C034D5FD6}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RPGCompanion.Android", "RPGCompanion.Android\RPGCompanion.Android.csproj", "{9C113D35-5148-405E-9038-550763BF4A33}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RPGCompanion.Domain.Tests", "RPGCompanion.Domain.Tests\RPGCompanion.Domain.Tests.csproj", "{8CE79412-2C51-48F8-9B1F-2B3393EFFA30}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RPGCompanion.Application", "RPGCompanion.Application\RPGCompanion.Application.csproj", "{11E12DA0-4D82-4BF3-B62D-286C2122068B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RPGCompanion.Domain", "RPGCompanion.Domain\RPGCompanion.Domain.csproj", "{F0D8F511-E135-4E4B-85E9-001EE040B692}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RPGCompanion.Infrastructure", "RPGCompanion.Infrastructure\RPGCompanion.Infrastructure.csproj", "{5A482139-74CB-4FBE-9DFF-2C923F7324E1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RPGCompanion.Api.IoC", "RPGCompanion.Api.IoC\RPGCompanion.Api.IoC.csproj", "{70C16B03-4DB3-4113-8F5C-693A6165747D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RPGCompanion.AcceptanceTests", "RPGCompanion.AcceptanceTests\RPGCompanion.AcceptanceTests.csproj", "{F44AE58F-DAD4-4BEE-B0EB-FFEC817D5EB9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RPGCompanion.Api", "RPGCompanion.Api\RPGCompanion.Api.csproj", "{A7285EB5-85C9-4795-AD46-142BD3B08494}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RPGCompanion.Api.Host", "RPGCompanion.Api.Host\RPGCompanion.Api.Host.csproj", "{6526B7DF-A4B7-461E-8B11-C9FA39561D55}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +37,6 @@ Global
 		{ABA70382-1CC5-4C54-AAC0-6DFD14989E18}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ABA70382-1CC5-4C54-AAC0-6DFD14989E18}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ABA70382-1CC5-4C54-AAC0-6DFD14989E18}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FA3EF5A1-439B-44EC-BC43-F5707083AD01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FA3EF5A1-439B-44EC-BC43-F5707083AD01}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FA3EF5A1-439B-44EC-BC43-F5707083AD01}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FA3EF5A1-439B-44EC-BC43-F5707083AD01}.Release|Any CPU.Build.0 = Release|Any CPU
 		{86F65490-2BEE-45D9-A145-5101A7245F26}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{86F65490-2BEE-45D9-A145-5101A7245F26}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{86F65490-2BEE-45D9-A145-5101A7245F26}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -45,20 +49,40 @@ Global
 		{25926613-D0BA-4B17-A9F0-E37D20F7209C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{25926613-D0BA-4B17-A9F0-E37D20F7209C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{25926613-D0BA-4B17-A9F0-E37D20F7209C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{81E10C1A-D0A8-4BAD-91C6-427C034D5FD6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{81E10C1A-D0A8-4BAD-91C6-427C034D5FD6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{81E10C1A-D0A8-4BAD-91C6-427C034D5FD6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{81E10C1A-D0A8-4BAD-91C6-427C034D5FD6}.Release|Any CPU.Build.0 = Release|Any CPU
 		{9C113D35-5148-405E-9038-550763BF4A33}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9C113D35-5148-405E-9038-550763BF4A33}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9C113D35-5148-405E-9038-550763BF4A33}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
 		{9C113D35-5148-405E-9038-550763BF4A33}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9C113D35-5148-405E-9038-550763BF4A33}.Release|Any CPU.Build.0 = Release|Any CPU
 		{9C113D35-5148-405E-9038-550763BF4A33}.Release|Any CPU.Deploy.0 = Release|Any CPU
-		{8CE79412-2C51-48F8-9B1F-2B3393EFFA30}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8CE79412-2C51-48F8-9B1F-2B3393EFFA30}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8CE79412-2C51-48F8-9B1F-2B3393EFFA30}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8CE79412-2C51-48F8-9B1F-2B3393EFFA30}.Release|Any CPU.Build.0 = Release|Any CPU
+		{11E12DA0-4D82-4BF3-B62D-286C2122068B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11E12DA0-4D82-4BF3-B62D-286C2122068B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11E12DA0-4D82-4BF3-B62D-286C2122068B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11E12DA0-4D82-4BF3-B62D-286C2122068B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F0D8F511-E135-4E4B-85E9-001EE040B692}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F0D8F511-E135-4E4B-85E9-001EE040B692}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F0D8F511-E135-4E4B-85E9-001EE040B692}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F0D8F511-E135-4E4B-85E9-001EE040B692}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A482139-74CB-4FBE-9DFF-2C923F7324E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A482139-74CB-4FBE-9DFF-2C923F7324E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A482139-74CB-4FBE-9DFF-2C923F7324E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A482139-74CB-4FBE-9DFF-2C923F7324E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{70C16B03-4DB3-4113-8F5C-693A6165747D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{70C16B03-4DB3-4113-8F5C-693A6165747D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{70C16B03-4DB3-4113-8F5C-693A6165747D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{70C16B03-4DB3-4113-8F5C-693A6165747D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F44AE58F-DAD4-4BEE-B0EB-FFEC817D5EB9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F44AE58F-DAD4-4BEE-B0EB-FFEC817D5EB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F44AE58F-DAD4-4BEE-B0EB-FFEC817D5EB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F44AE58F-DAD4-4BEE-B0EB-FFEC817D5EB9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A7285EB5-85C9-4795-AD46-142BD3B08494}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7285EB5-85C9-4795-AD46-142BD3B08494}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7285EB5-85C9-4795-AD46-142BD3B08494}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7285EB5-85C9-4795-AD46-142BD3B08494}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6526B7DF-A4B7-461E-8B11-C9FA39561D55}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6526B7DF-A4B7-461E-8B11-C9FA39561D55}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6526B7DF-A4B7-461E-8B11-C9FA39561D55}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6526B7DF-A4B7-461E-8B11-C9FA39561D55}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

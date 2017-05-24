@@ -1,7 +1,7 @@
-﻿using RPGCompanion.Domain.Abstract;
-
-namespace RPGCompanion.Domain.Services
+﻿namespace RPGCompanion.Domain.Managers
 {
+    using Model.Character;
+
     public interface ICharacterManager
     {
         Character Character { get; }

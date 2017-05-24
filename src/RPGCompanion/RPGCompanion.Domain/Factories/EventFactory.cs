@@ -1,7 +1,7 @@
-﻿using RPGCompanion.Domain.Abstract;
-
-namespace RPGCompanion.Domain.Model
+﻿namespace RPGCompanion.Domain.Factories
 {
+    using Model.Timeline;
+
     public class EventFactory
     {
         Event _eventTemplate;

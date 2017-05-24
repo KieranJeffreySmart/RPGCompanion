@@ -1,0 +1,7 @@
+C:\Development\Git\RPGCompanion\src\RPGCompanion\RPGCompanion.Application\bin\Debug\RPGCompanion.Application.dll
+C:\Development\Git\RPGCompanion\src\RPGCompanion\RPGCompanion.Application\bin\Debug\RPGCompanion.Application.pdb
+C:\Development\Git\RPGCompanion\src\RPGCompanion\RPGCompanion.Application\bin\Debug\RPGCompanion.Domain.dll
+C:\Development\Git\RPGCompanion\src\RPGCompanion\RPGCompanion.Application\bin\Debug\RPGCompanion.Domain.pdb
+C:\Development\Git\RPGCompanion\src\RPGCompanion\RPGCompanion.Application\obj\Debug\RPGCompanion.Application.csprojResolveAssemblyReference.cache
+C:\Development\Git\RPGCompanion\src\RPGCompanion\RPGCompanion.Application\obj\Debug\RPGCompanion.Application.dll
+C:\Development\Git\RPGCompanion\src\RPGCompanion\RPGCompanion.Application\obj\Debug\RPGCompanion.Application.pdb

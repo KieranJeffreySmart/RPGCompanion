@@ -1,7 +1,0 @@
-D:\Work\Git\RPGCompanion\src\RPGCompanion\RPGCompanion.Domain\bin\Debug\netcoreapp1.1\RPGCompanion.Domain.deps.json
-D:\Work\Git\RPGCompanion\src\RPGCompanion\RPGCompanion.Domain\bin\Debug\netcoreapp1.1\RPGCompanion.Domain.dll
-D:\Work\Git\RPGCompanion\src\RPGCompanion\RPGCompanion.Domain\bin\Debug\netcoreapp1.1\RPGCompanion.Domain.pdb
-D:\Work\Git\RPGCompanion\src\RPGCompanion\RPGCompanion.Domain\obj\Debug\netcoreapp1.1\RPGCompanion.Domain.csprojResolveAssemblyReference.cache
-D:\Work\Git\RPGCompanion\src\RPGCompanion\RPGCompanion.Domain\obj\Debug\netcoreapp1.1\RPGCompanion.Domain.AssemblyInfo.cs
-D:\Work\Git\RPGCompanion\src\RPGCompanion\RPGCompanion.Domain\obj\Debug\netcoreapp1.1\RPGCompanion.Domain.dll
-D:\Work\Git\RPGCompanion\src\RPGCompanion\RPGCompanion.Domain\obj\Debug\netcoreapp1.1\RPGCompanion.Domain.pdb

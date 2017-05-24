@@ -1,5 +1,7 @@
-﻿namespace RPGCompanion.Domain.Model
+﻿namespace RPGCompanion.Domain.Factories
 {
+    using Model.GameEntities;
+
     public class CreatureFactory
     {
         private readonly Creature _creatureTemplate;
