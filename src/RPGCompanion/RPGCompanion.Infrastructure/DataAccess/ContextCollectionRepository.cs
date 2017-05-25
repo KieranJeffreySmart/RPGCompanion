@@ -20,5 +20,10 @@
         {
             return Task.FromResult(_inMenoryStorage.FirstOrDefault(e => e.Id == id));
         }
+
+        public Task<IEnumerable<ContextCollection>> Get()
+        {
+            return Task.FromResult<IEnumerable<ContextCollection>>(_inMenoryStorage);
+        }
     }
 }

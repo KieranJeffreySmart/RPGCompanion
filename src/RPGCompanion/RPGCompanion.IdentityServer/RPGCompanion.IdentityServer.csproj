@@ -95,14 +95,9 @@
     <Compile Include="Config\Clients.cs" />
     <Compile Include="Config\Scopes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SecurityConstants.cs" />
     <Compile Include="Startup1.cs" />
     <Compile Include="Config\Users.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\RPGCompanion.Constants\RPGCompanion.Constants.csproj">
-      <Project>{066b923f-5b97-47e7-b131-fb2d1d4e2161}</Project>
-      <Name>RPGCompanion.Constants</Name>
-    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

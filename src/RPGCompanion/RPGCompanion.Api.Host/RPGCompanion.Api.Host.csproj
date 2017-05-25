@@ -115,7 +115,6 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_Start\SwaggerConfig.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="WindsorDependencyResolver.cs" />
@@ -125,6 +124,10 @@
     <ProjectReference Include="..\RPGCompanion.Api.IoC\RPGCompanion.Api.IoC.csproj">
       <Project>{70C16B03-4DB3-4113-8F5C-693A6165747D}</Project>
       <Name>RPGCompanion.Api.IoC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RPGCompanion.Api.Middleware\RPGCompanion.Api.Middleware.csproj">
+      <Project>{C95FFEF3-B393-4745-A34E-81175CEACC0C}</Project>
+      <Name>RPGCompanion.Api.Middleware</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

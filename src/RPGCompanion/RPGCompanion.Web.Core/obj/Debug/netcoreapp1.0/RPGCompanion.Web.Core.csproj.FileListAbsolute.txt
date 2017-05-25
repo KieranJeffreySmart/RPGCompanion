@@ -1,9 +1,0 @@
-C:\Development\Git\RPGCompanion\src\RPGCompanion\RPGCompanion.Web.Core\bin\Debug\netcoreapp1.0\RPGCompanion.Web.Core.deps.json
-C:\Development\Git\RPGCompanion\src\RPGCompanion\RPGCompanion.Web.Core\bin\Debug\netcoreapp1.0\RPGCompanion.Web.Core.runtimeconfig.json
-C:\Development\Git\RPGCompanion\src\RPGCompanion\RPGCompanion.Web.Core\bin\Debug\netcoreapp1.0\RPGCompanion.Web.Core.runtimeconfig.dev.json
-C:\Development\Git\RPGCompanion\src\RPGCompanion\RPGCompanion.Web.Core\bin\Debug\netcoreapp1.0\RPGCompanion.Web.Core.dll
-C:\Development\Git\RPGCompanion\src\RPGCompanion\RPGCompanion.Web.Core\bin\Debug\netcoreapp1.0\RPGCompanion.Web.Core.pdb
-C:\Development\Git\RPGCompanion\src\RPGCompanion\RPGCompanion.Web.Core\obj\Debug\netcoreapp1.0\RPGCompanion.Web.Core.csprojResolveAssemblyReference.cache
-C:\Development\Git\RPGCompanion\src\RPGCompanion\RPGCompanion.Web.Core\obj\Debug\netcoreapp1.0\RPGCompanion.Web.Core.AssemblyInfo.cs
-C:\Development\Git\RPGCompanion\src\RPGCompanion\RPGCompanion.Web.Core\obj\Debug\netcoreapp1.0\RPGCompanion.Web.Core.dll
-C:\Development\Git\RPGCompanion\src\RPGCompanion\RPGCompanion.Web.Core\obj\Debug\netcoreapp1.0\RPGCompanion.Web.Core.pdb

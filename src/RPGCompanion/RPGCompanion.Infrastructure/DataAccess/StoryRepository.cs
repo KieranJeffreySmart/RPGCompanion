@@ -20,5 +20,10 @@
             _inMemoryStorage.Add(story);
             return Task.CompletedTask;
         }
+
+        public Task<IEnumerable<Story>> Get()
+        {
+            return Task.FromResult<IEnumerable<Story>>(_inMemoryStorage);
+        }
     }
 }

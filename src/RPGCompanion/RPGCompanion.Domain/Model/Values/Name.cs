@@ -4,13 +4,11 @@
 
     public class Name: DomainValueType
     {
-        private string v;
-
-        public Name(string v)
+        public Name(string displayName)
         {
-            this.v = v;
+            DisplayName = displayName;
         }
 
-        string DisplayName { get; }
+        public string DisplayName { get; }
     }
 }

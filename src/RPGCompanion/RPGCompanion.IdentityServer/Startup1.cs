@@ -35,7 +35,6 @@ namespace RPGCompanion.IdentityServer
             });
         }
 
-
         X509Certificate2 LoadCertificate()
         {
             return new X509Certificate2($@"{AppDomain.CurrentDomain.BaseDirectory}\certificates\idsrv3test.pfx", "idsrv3test");

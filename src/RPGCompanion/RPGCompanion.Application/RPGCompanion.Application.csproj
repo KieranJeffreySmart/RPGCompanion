@@ -59,9 +59,13 @@
     <Compile Include="Queries\DomainQuery.cs" />
     <Compile Include="Queries\GetContext.cs" />
     <Compile Include="Queries\GetContextCollection.cs" />
+    <Compile Include="Queries\GetContextCollections.cs" />
+    <Compile Include="Queries\GetStories.cs" />
     <Compile Include="Queries\GetStory.cs" />
     <Compile Include="Queries\Handlers\GetContextCollectionHandler.cs" />
+    <Compile Include="Queries\Handlers\GetContextCollectionsHandler.cs" />
     <Compile Include="Queries\Handlers\GetContextHandler.cs" />
+    <Compile Include="Queries\Handlers\GetStoriesHandler.cs" />
     <Compile Include="Queries\Handlers\GetStoryHandler.cs" />
     <Compile Include="Response\DomainResponse.cs" />
   </ItemGroup>
