@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Threading.Tasks;
 using Microsoft.Owin;
 using Owin;
 using IdentityServer3.Core.Configuration;
@@ -39,7 +38,7 @@ namespace RPGCompanion.IdentityServer
 
         X509Certificate2 LoadCertificate()
         {
-            return new X509Certificate2(string.Format(@"{0}\certificates\idsrv3test.pfx", AppDomain.CurrentDomain.BaseDirectory), "idsrv3test");
+            return new X509Certificate2($@"{AppDomain.CurrentDomain.BaseDirectory}\certificates\idsrv3test.pfx", "idsrv3test");
         }
     }
 }

@@ -7,8 +7,7 @@
     {
         public static IWindsorContainer Bootstrap()
         {
-            return new WindsorContainer()
-                .Install(FromAssembly.This());
+            return new WindsorContainer().Install(FromAssembly.This());
         }
     }
 }

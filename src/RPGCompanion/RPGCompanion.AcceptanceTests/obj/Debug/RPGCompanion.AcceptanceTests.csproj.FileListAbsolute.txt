@@ -12,7 +12,11 @@ C:\Development\Git\RPGCompanion\src\RPGCompanion\RPGCompanion.AcceptanceTests\bi
 C:\Development\Git\RPGCompanion\src\RPGCompanion\RPGCompanion.AcceptanceTests\bin\Debug\xunit.assert.dll
 C:\Development\Git\RPGCompanion\src\RPGCompanion\RPGCompanion.AcceptanceTests\bin\Debug\xunit.core.dll
 C:\Development\Git\RPGCompanion\src\RPGCompanion\RPGCompanion.AcceptanceTests\bin\Debug\xunit.execution.desktop.dll
+C:\Development\Git\RPGCompanion\src\RPGCompanion\RPGCompanion.AcceptanceTests\bin\Debug\RPGCompanion.Api.dll
 C:\Development\Git\RPGCompanion\src\RPGCompanion\RPGCompanion.AcceptanceTests\bin\Debug\RPGCompanion.Infrastructure.dll
+C:\Development\Git\RPGCompanion\src\RPGCompanion\RPGCompanion.AcceptanceTests\bin\Debug\System.Web.Http.dll
+C:\Development\Git\RPGCompanion\src\RPGCompanion\RPGCompanion.AcceptanceTests\bin\Debug\System.Net.Http.Formatting.dll
+C:\Development\Git\RPGCompanion\src\RPGCompanion\RPGCompanion.AcceptanceTests\bin\Debug\Newtonsoft.Json.dll
 C:\Development\Git\RPGCompanion\src\RPGCompanion\RPGCompanion.AcceptanceTests\bin\Debug\RPGCompanion.Api.IoC.pdb
 C:\Development\Git\RPGCompanion\src\RPGCompanion\RPGCompanion.AcceptanceTests\bin\Debug\RPGCompanion.Application.pdb
 C:\Development\Git\RPGCompanion\src\RPGCompanion\RPGCompanion.AcceptanceTests\bin\Debug\RPGCompanion.Domain.pdb
@@ -26,7 +30,11 @@ C:\Development\Git\RPGCompanion\src\RPGCompanion\RPGCompanion.AcceptanceTests\bi
 C:\Development\Git\RPGCompanion\src\RPGCompanion\RPGCompanion.AcceptanceTests\bin\Debug\xunit.assert.xml
 C:\Development\Git\RPGCompanion\src\RPGCompanion\RPGCompanion.AcceptanceTests\bin\Debug\xunit.core.xml
 C:\Development\Git\RPGCompanion\src\RPGCompanion\RPGCompanion.AcceptanceTests\bin\Debug\xunit.execution.desktop.xml
+C:\Development\Git\RPGCompanion\src\RPGCompanion\RPGCompanion.AcceptanceTests\bin\Debug\RPGCompanion.Api.pdb
 C:\Development\Git\RPGCompanion\src\RPGCompanion\RPGCompanion.AcceptanceTests\bin\Debug\RPGCompanion.Infrastructure.pdb
+C:\Development\Git\RPGCompanion\src\RPGCompanion\RPGCompanion.AcceptanceTests\bin\Debug\System.Web.Http.xml
+C:\Development\Git\RPGCompanion\src\RPGCompanion\RPGCompanion.AcceptanceTests\bin\Debug\System.Net.Http.Formatting.xml
+C:\Development\Git\RPGCompanion\src\RPGCompanion\RPGCompanion.AcceptanceTests\bin\Debug\Newtonsoft.Json.xml
 C:\Development\Git\RPGCompanion\src\RPGCompanion\RPGCompanion.AcceptanceTests\obj\Debug\RPGCompanion.AcceptanceTests.csprojResolveAssemblyReference.cache
 C:\Development\Git\RPGCompanion\src\RPGCompanion\RPGCompanion.AcceptanceTests\obj\Debug\RPGCompanion.AcceptanceTests.dll
 C:\Development\Git\RPGCompanion\src\RPGCompanion\RPGCompanion.AcceptanceTests\obj\Debug\RPGCompanion.AcceptanceTests.pdb

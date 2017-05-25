@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bootstrapper.cs" />
+    <Compile Include="ControllerInstaller .cs" />
     <Compile Include="DataAccessInstaller.cs" />
     <Compile Include="MediatrInstaller.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -55,6 +56,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\RPGCompanion.Api\RPGCompanion.Api.csproj">
+      <Project>{A7285EB5-85C9-4795-AD46-142BD3B08494}</Project>
+      <Name>RPGCompanion.Api</Name>
+    </ProjectReference>
     <ProjectReference Include="..\RPGCompanion.Application\RPGCompanion.Application.csproj">
       <Project>{11E12DA0-4D82-4BF3-B62D-286C2122068B}</Project>
       <Name>RPGCompanion.Application</Name>

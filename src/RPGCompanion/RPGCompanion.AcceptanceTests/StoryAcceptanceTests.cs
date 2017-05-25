@@ -3,12 +3,12 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
-    using System.Runtime.InteropServices;
     using System.Threading.Tasks;
     using Api.IoC;
     using Application.Commands;
     using Application.Mediator;
     using Application.Queries;
+    using Castle.Windsor;
     using Domain.Model.Context;
     using Domain.Model.Values;
     using FluentAssertions;
