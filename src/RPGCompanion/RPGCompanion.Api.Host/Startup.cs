@@ -8,7 +8,6 @@
 
     public class Startup
     {
-        
         public void Configuration(IAppBuilder appBuilder)
         {
             var config = Create();

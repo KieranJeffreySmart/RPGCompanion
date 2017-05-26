@@ -2,7 +2,6 @@
 
 namespace RPGCompanion.Api.SelfHost
 {
-    using System.Net.Http;
     using Microsoft.Owin.Hosting;
 
     class Program

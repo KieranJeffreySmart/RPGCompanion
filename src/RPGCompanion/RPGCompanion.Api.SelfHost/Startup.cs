@@ -2,7 +2,6 @@
 {
     using System.Net.Http.Formatting;
     using System.Web.Http;
-    using System.Web.Http.Dependencies;
     using IoC;
     using Owin;
 
@@ -10,19 +9,19 @@
     {
         public void Configuration(IAppBuilder appBuilder)
         {
-            var container = Bootstrapper.Bootstrap();
-            Create(appBuilder, new WindsorDependencyResolver(container));
+            var config = Create();
+            var resolver = Bootstrapper.ApiBootstrap(config);
+            appBuilder.UseWebApi(config);
+            config.DependencyResolver = resolver;
         }
 
-        public static void Create(IAppBuilder app, IDependencyResolver resolver)
+        public static HttpConfiguration Create()
         {
             var config = new HttpConfiguration();
             config.MapHttpAttributeRoutes();
             ConfigureFormatters(config);
-
-            config.DependencyResolver = resolver;
-            app.UseWebApi(config);
             config.EnsureInitialized();
+            return config;
         }
 
         private static void ConfigureFormatters(HttpConfiguration config)

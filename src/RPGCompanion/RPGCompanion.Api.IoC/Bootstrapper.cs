@@ -14,11 +14,19 @@
             BootstrapMiddleware(config, appBuilder);
             return new WindsorDependencyResolver(new WindsorContainer().Install(FromAssembly.This()));
         }
+        public static IDependencyResolver ApiBootstrap(HttpConfiguration config)
+        {
+            BootstrapMiddleware(config, null);
+            return new WindsorDependencyResolver(new WindsorContainer().Install(FromAssembly.This()));
+        }
 
         private static void BootstrapMiddleware(HttpConfiguration config, IAppBuilder appBuilder)
         {
             Configure.Enable(config);
-            Configure.Use(appBuilder);
+            if (appBuilder != null)
+            {
+                Configure.Use(appBuilder);
+            }
         }
 
         public static IWindsorContainer Bootstrap()
