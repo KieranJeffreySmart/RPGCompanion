@@ -15,20 +15,20 @@
 
         public static void Use(IAppBuilder appBuilder)
         {
-            //appBuilder.UseCookieAuthentication(new CookieAuthenticationOptions
-            //{
-            //    AuthenticationType = "Cookies"
-            //});
+            appBuilder.UseCookieAuthentication(new CookieAuthenticationOptions
+            {
+                AuthenticationType = "Cookies"
+            });
 
-            //appBuilder.UseOpenIdConnectAuthentication(new OpenIdConnectAuthenticationOptions
-            //{
-            //    Authority = "https://localhost:44319/identity",
-            //    ClientId = "mvc",
-            //    RedirectUri = "https://localhost:44319/",
-            //    ResponseType = "id_token",
+            appBuilder.UseOpenIdConnectAuthentication(new OpenIdConnectAuthenticationOptions
+            {
+                Authority = "https://localhost:44319/identity",
+                ClientId = "mvc",
+                RedirectUri = "https://localhost:44319/",
+                ResponseType = "id_token",
 
-            //    SignInAsAuthenticationType = "Cookies"
-            //});
+                SignInAsAuthenticationType = "Cookies"
+            });
         }
     }
 }

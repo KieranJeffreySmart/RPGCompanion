@@ -5,15 +5,14 @@
     using IoC;
     using Middleware;
     using Owin;
-    using Swashbuckle.Application;
 
     public class Startup
     {
+        
         public void Configuration(IAppBuilder appBuilder)
         {
-            var container = Bootstrapper.Bootstrap();
-            var resolver = new WindsorDependencyResolver(container);
             var config = Create();
+            var resolver = Bootstrapper.ApiBootstrap(config, appBuilder);
             appBuilder.UseWebApi(config);
             config.DependencyResolver = resolver;
         }
@@ -24,8 +23,6 @@
             config.MapHttpAttributeRoutes();
             ConfigureFormatters(config);
             config.EnsureInitialized();
-            Configure.Enable(config);
-
             return config;
         }
 

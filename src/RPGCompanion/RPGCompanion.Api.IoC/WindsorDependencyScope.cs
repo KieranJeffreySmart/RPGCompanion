@@ -1,4 +1,4 @@
-﻿namespace RPGCompanion.Api.Host
+﻿namespace RPGCompanion.Api.IoC
 {
     using System;
     using System.Collections.Generic;

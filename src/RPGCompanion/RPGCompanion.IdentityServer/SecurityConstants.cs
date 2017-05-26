@@ -1,4 +1,4 @@
-﻿namespace RPGCompanion.Constants
+﻿namespace RPGCompanion.IdentityServer
 {
     public static class SecurityConstants
     {

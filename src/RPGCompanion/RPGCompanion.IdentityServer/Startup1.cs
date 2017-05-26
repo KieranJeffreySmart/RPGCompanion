@@ -19,15 +19,13 @@ namespace RPGCompanion.IdentityServer
                 .UseInMemoryUsers(Users.Get())
                 .UseInMemoryClients(Clients.Get())
                 .UseInMemoryScopes(Scopes.Get());
-
-
-
+                
                 var options = new IdentityServerOptions
                 {
                     Factory = idServerServiceFactory,
                     SiteName = "RPG Companion Security Token Service",
-                    IssuerUri = Constants.SecurityConstants.IssuerUri,
-                    PublicOrigin = Constants.SecurityConstants.OriginUri,
+                    IssuerUri = SecurityConstants.IssuerUri,
+                    PublicOrigin = SecurityConstants.OriginUri,
                     SigningCertificate = LoadCertificate()
                 };
 
