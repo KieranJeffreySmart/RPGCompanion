@@ -1,10 +1,8 @@
-﻿using System.Collections.Generic;
-using RPGCompanion.Domain.Model;
-
-namespace RPGCompanion.Domain.Repository
+﻿namespace RPGCompanion.Domain.Repository
 {
+    using System.Collections.Generic;
     using Model.Context;
-    using Model.Timeline;
+    using Model.Setting.Timeline;
 
     public interface IActionRepository
     {

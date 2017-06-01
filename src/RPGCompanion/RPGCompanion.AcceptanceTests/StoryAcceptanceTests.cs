@@ -5,11 +5,14 @@
     using System.Linq;
     using System.Threading.Tasks;
     using Api.IoC;
-    using Application.Commands;
-    using Application.Mediator;
-    using Application.Queries;
-    using Castle.Windsor;
+    using Application.Character;
+    using Application.Context;
+    using Application.Domain.Mediator;
+    using Application.Narrative;
+    using Application.Setting;
     using Domain.Model.Context;
+    using Domain.Model.Narrative;
+    using Domain.Model.Narrative.Plot;
     using Domain.Model.Values;
     using FluentAssertions;
     using TestStack.BDDfy;
@@ -17,10 +20,21 @@
 
     public class StoryAcceptanceTests
     {
-        private IManagedMediator _mediator;
-        private ContextCollection _collection;
+        private readonly IManagedMediator _mediator;
+        private IResponse<Guid> _response;
+        private Scene _scene;
+        private NewMoment _openingMoment;
+        private NewGlobalEnvironment _openingEnvironment;
+        private CreateContext _contextCommand;
+        private Context _context;
+        private List<Guid> _storyLines;
+        private NewLocation _location;
+        private CreateCharacter _newCharacter;
+        private List<AddUnitType> _unitTypes;
+        private List<NewItem> _actorProps;
         private NewStory _newStoryCommand;
-        private IResponse<Guid> _result;
+        private NewLocalEnvironment _localEnvironment;
+        private StoryLine _storySoFar;
 
         public StoryAcceptanceTests()
         {
@@ -29,55 +43,8 @@
         }
 
         [Fact]
-        public void CreateAStory()
+        public void StartAStory()
         {
-            this.Given(t => t.AContext().Wait())
-                .And(t => t.AStory())
-                .When(t => t.TheStoryIsSaved().Wait())
-                .Then(t => t.AValidLocationIsRecieved())
-                .And(t => t.TheCollectionCanBeRetrieved().Wait())
-                .BDDfy();
-        }
-        
-        private async Task AContext()
-        {
-            var response = await _mediator.Send(new NewContextCollection
-            {
-                Name = new Name("My Contexts"), Contexts = new List<Context>
-                {
-                    new Context(Guid.NewGuid(), new Name("Steve Jackson Books"))
-                }
-            });
-
-            var collectionResponse = await _mediator.Send(new GetContextCollection {Id = response.Result});
-            collectionResponse.Should().NotBeNull();
-            _collection = collectionResponse.Result;
-        }
-
-        private void AStory()
-        {
-            var contextId = _collection.Contexts.First().Id;
-            _newStoryCommand = new NewStory{Name = new Name("The Warlock Of Firetop Mountain"), ContextId = contextId };
-        }
-
-        private async Task TheStoryIsSaved()
-        {
-            _result = await _mediator.Send(_newStoryCommand);
-        }
-
-        private void AValidLocationIsRecieved()
-        {
-            _result.Should().NotBeNull();
-            _result.Result.Should().NotBeEmpty();
-        }
-
-        private async Task TheCollectionCanBeRetrieved()
-        {
-            var query = new GetStory {Id = _result.Result};
-            var story = await _mediator.Send(query);
-            story.Should().NotBeNull();
-            story.Result.Should().NotBeNull();
-            story.Result.Id.Should().Be(query.Id);
         }
     }
 }

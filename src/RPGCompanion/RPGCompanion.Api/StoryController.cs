@@ -8,12 +8,10 @@
     using System.Threading.Tasks;
     using System.Web.Http;
     using System.Web.Http.Results;
-    using Application.Commands;
-    using Application.Mediator;
-    using Application.Queries;
-    using Application.Response;
-    using Domain.Model.Context;
-    using Domain.Model.Story;
+    using Application.Domain;
+    using Application.Domain.Mediator;
+    using Application.Narrative;
+    using Domain.Model.Narrative;
 
     public class StoryController: ApiController
     {

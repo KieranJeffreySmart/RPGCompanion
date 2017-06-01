@@ -4,8 +4,8 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
-    using Application.Mediator;
-    using Application.Response;
+    using Application.Domain;
+    using Application.Domain.Mediator;
 
     public class CastleManagedMediator: IManagedMediator
     {
@@ -42,6 +42,7 @@
             {
                 return new FailedResponse();
             }
+
             var method = specificHandlerType.GetMethod("Handle");
             await (Task)method.Invoke(handler, new object[] { message });
             return new SuccessResponse();

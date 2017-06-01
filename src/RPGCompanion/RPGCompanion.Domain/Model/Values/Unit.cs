@@ -1,17 +1,17 @@
 ﻿namespace RPGCompanion.Domain.Model.Values
 {
     using Context.Types;
-    using DomainCore;
+    using Domain;
 
     public class Unit: DomainValueType
     {
-        int AtomicValue { get; }
-        UnitType UnitType { get; }
+        public long Value { get; }
+        public UnitType UnitType { get; }
         
-        public Unit(UnitType unitType, int atomicValue)
+        public Unit(UnitType unitType, long value)
         {
             UnitType = unitType;
-            AtomicValue = atomicValue;
+            Value = value;
         }
     }
 }

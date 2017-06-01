@@ -3,7 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.Threading.Tasks;
-    using Model.Story;
+    using Model.Narrative;
 
     public interface IStoryRepository
     {

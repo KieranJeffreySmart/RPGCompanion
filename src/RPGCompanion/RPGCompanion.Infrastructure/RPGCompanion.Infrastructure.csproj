@@ -40,8 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataAccess\ContextCollectionRepository.cs" />
-    <Compile Include="DataAccess\StoryRepository.cs" />
+    <Compile Include="DataAccess\Context\ContextRepository.cs" />
+    <Compile Include="DataAccess\Story\StoryRepository.cs" />
     <Compile Include="Mediator\CastleManagedMediator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

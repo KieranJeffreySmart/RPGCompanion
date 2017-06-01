@@ -2,34 +2,22 @@
 {
     using System;
     using System.Collections.Generic;
-    using Character;
-    using DomainCore;
-    using GameEntities;
-    using Location;
-    using Timeline;
     using Types;
     using Values;
-    using Action = Timeline.Action;
 
-    public class Context: DomainEntity<Guid>
+    public class Context: ContextEntity<Guid>
     {
-        public Name Name { get; }
-        public Description Description { get; }
-        public List<Character> Characters { get; }
-        public List<UnitType> UnitTypes { get; }
-        public List<ItemType> ItemTypes { get; }
-        public List<Item> Items { get; }
-        public List<Thing> Things { get; }
-        public List<Action> Actions { get; }
-        public List<Event> Events { get; }
-        public List<Creature> Creatures { get; }
-        public List<LocalEnvironment> LocalEnvironments { get; }
-        public List<GlobalEnvironment> GlobalEnvironments { get; }
-        public List<Location> Locations { get; }
+        readonly List<UnitType> _unitTypes = new List<UnitType>();
 
-        public Context(Guid id, Name name) : base(id)
+        public IReadOnlyCollection<UnitType> UnitTypes => _unitTypes;
+
+        public Context(Guid id, Name name, Description description, Creator creator) : base(id, name, description, creator)
         {
-            Name = name;
+        }
+
+        public void AddUnitType(Name name, Description description)
+        {
+            _unitTypes.Add(new UnitType(name, description));
         }
     }
 }

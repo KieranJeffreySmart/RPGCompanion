@@ -68,8 +68,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CharacterAcceptanceTests.cs" />
     <Compile Include="ContextAcceptanceTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SettingAcceptanceTests.cs" />
     <Compile Include="StoryAcceptanceTests.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using RPGCompanion.Domain.Model;
-
-namespace RPGCompanion.Domain.Repository
+﻿namespace RPGCompanion.Domain.Repository
 {
+    using System.Collections.Generic;
     using Model.Context;
-    using Model.Location;
+    using Model.Setting.Location;
 
     public interface ILocationRepository
     {

@@ -1,6 +1,6 @@
 ﻿namespace RPGCompanion.Domain.Model.Values
 {
-    using DomainCore;
+    using Domain;
 
     public class Name: DomainValueType
     {
@@ -10,5 +10,15 @@
         }
 
         public string DisplayName { get; }
+
+        protected bool Equals(Name other)
+        {
+            return string.Equals(DisplayName, other.DisplayName);
+        }
+
+        public override int GetHashCode()
+        {
+            return (DisplayName != null ? DisplayName.GetHashCode() : 0);
+        }
     }
 }

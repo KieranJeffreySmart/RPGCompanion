@@ -1,13 +1,14 @@
 ﻿namespace RPGCompanion.AcceptanceTests
 {
     using System;
+    using System.Collections.Generic;
+    using System.Linq;
     using System.Threading.Tasks;
     using Api.IoC;
-    using Application.Commands;
-    using Application.Mediator;
-    using Application.Queries;
-    using Castle.Windsor;
+    using Application.Context;
+    using Application.Domain.Mediator;
     using Domain.Model.Context;
+    using Domain.Model.Context.Types;
     using Domain.Model.Values;
     using FluentAssertions;
     using TestStack.BDDfy;
@@ -15,15 +16,19 @@
 
     public class ContextAcceptanceTests
     {
-        private NewContext _contextCommand;
-        private NewContextCollection _collectionCommand;
-        private readonly Name _collectionName = new Name("NewCollection");
-        private readonly Name _contextName = new Name("Steve Jackson");
+        private CreateContext _contextCommand;
 
         private readonly IManagedMediator _mediator;
-        private IResponse<Guid> _result;
-        private IResponse<ContextCollection> _collectionResult;
-        private IResponse<Context> _contextResult;
+        private Creator _gamesMaster;
+        private readonly Name _contextName = new Name("Fighting Fantasy Books");
+        private readonly Description _contextDescription = new Description("Role Play Books by Steve Jackson and Ian Livingstone");
+        private Guid _contextId;
+        private Context _context;
+        private List<CharacterTraitSet> _traits;
+        private readonly UnitType _scoreUnitType = new UnitType(new Name("Score"), new Description("Character Attribute Scores"));
+        private readonly UnitType _doseUnitType = new UnitType(new Name("Dose"), new Description("A Dose of Potion"));
+        private readonly UnitType _rationUnitType = new UnitType(new Name("Ration"), new Description("A Dose of Potion"));
+        private readonly UnitType _metersUnitType = new UnitType(new Name("Meters"), new Description("Metric Measurement"));
 
         public ContextAcceptanceTests()
         {
@@ -32,76 +37,148 @@
         }
 
         [Fact]
-        void CreateCollection()
+        public void CreateAQuickContext()
         {
-            this.Given(t => t.ACollection())
-                .When(t => t.TheCollectionIsSaved().Wait())
-                .Then(t => t.AValidLocationIsRecieved())
-                .And(t => t.TheCollectionCanBeRetrieved().Wait())
+            this.Given(t => t.AGamesMaster())
+                .And(t => t.ASetOfCharacterTraits())
+                .And(t => t.ASetOfItemTraits())
+                .When(t => t.CreateAContext().Wait())
+                .Then(t => t.TheNewContextCanBeRead())
+                // .And(t => t.TheContextHasNewUnitTypes())
                 .BDDfy();
         }
 
-        [Fact]
-        public void CreateContext()
+        public void ASetOfCharacterTraits()
         {
-            this.Given(t => t.ACollection())
-                .And(t => t.TheCollectionIsSaved().Wait())
-                .And(t => t.TheCollectionIsRetrieved())
-                .And(t => t.AContext())
-                .And(t => t.SaveAContext().Wait())
-                .Then(t => t.AValidLocationIsRecieved())
-                .And(t => t.TheContextCanBeRetrieved())
-                .BDDfy();
+            _traits = new List<CharacterTraitSet>
+            {
+                new CharacterTraitSet(new Name("Player Character"), PlayerTraits())
+            };
         }
 
-        private void ACollection()
+        public void ASetOfItemTraits()
         {
-            _collectionCommand = new NewContextCollection { Name = _collectionName };
+            _traits = new List<CharacterTraitSet>
+            {
+                new CharacterTraitSet(new Name("Standard Lantern"), StandardLanternTraits()),
+                new CharacterTraitSet(new Name("Standard Sword"), StandardSwordTraits()),
+                new CharacterTraitSet(new Name("Standard Rations"), StandardRationsTraits()),
+                new CharacterTraitSet(new Name("Skill Potion"), StandardPotionTraits())
+            };
         }
 
-        private async Task TheCollectionIsSaved()
+        private List<TraitGroup> PlayerTraits()
         {
-            _result = await _mediator.Send(_collectionCommand);
+            return new List<TraitGroup>
+            {
+                new TraitGroup(new Name("Scores"), new List<Trait>
+                    {
+                        new Trait(new Name("Skill"), new Unit(_scoreUnitType, 11)),
+                        new Trait(new Name("Stamina"), new Unit(_scoreUnitType, 11)),
+                        new Trait(new Name("Luck"), new Unit(_scoreUnitType, 11))
+                    })
+            };
         }
 
-        private void AValidLocationIsRecieved()
+        private List<TraitGroup> StandardPotionTraits()
         {
-            _result.Should().NotBeNull();
-            _result.Result.Should().NotBeEmpty();
+            return new List<TraitGroup>
+            {
+                new TraitGroup(new Name("Unit"),
+                    new List<Trait>
+                    {
+                        new Trait(new Name("Doses"), new Unit(_doseUnitType, 1))
+                    })
+            };
         }
 
-        private async Task TheCollectionIsRetrieved()
+        private List<TraitGroup> StandardRationsTraits()
         {
-            GetContextCollection getCollectionQuery = new GetContextCollection { Id = _result.Result };
-            _collectionResult = await _mediator.Send(getCollectionQuery);
+            return new List<TraitGroup>
+            {
+                new TraitGroup(new Name("Scores"),
+                    new List<Trait>
+                    {
+                        new Trait(new Name("Stamina"), new Unit(_scoreUnitType, 99))
+                    }),
+                new TraitGroup(new Name("Unit"),
+                    new List<Trait>
+                    {
+                        new Trait(new Name("Portions"), new Unit(_rationUnitType, 1))
+                    })
+            };
         }
 
-        private async Task TheCollectionCanBeRetrieved()
+        private List<TraitGroup> StandardLanternTraits()
         {
-            GetContextCollection getCollectionQuery = new GetContextCollection { Id = _result.Result };
-            _collectionResult = await _mediator.Send(getCollectionQuery);
-            _collectionResult.Should().NotBeNull();
-            _collectionResult.Result.Should().NotBeNull();
-            _collectionResult.Result.Id.Should().Be(getCollectionQuery.Id);
+            return new List<TraitGroup>
+            {
+                new TraitGroup(new Name("Environmental"),
+                    new List<Trait>
+                    {
+                        new Trait(new Name("Emit Light"), new Unit(_metersUnitType, 5))
+                    })
+            };
         }
 
-        private void AContext()
+        private List<TraitGroup> StandardSwordTraits()
         {
-            _contextCommand = new NewContext { CollectionId = _result.Result, Name = _contextName };
+            return new List<TraitGroup>
+            {
+                new TraitGroup(new Name("Scores"),
+                    new List<Trait>
+                    {
+                        new Trait(new Name("Stamina"), new Unit(_scoreUnitType, -2))
+                    })
+            };
         }
 
-        private async Task SaveAContext()
+        private void AGamesMaster()
         {
-            _result = await _mediator.Send(_contextCommand);
+            _gamesMaster = new Creator(Guid.NewGuid());
         }
 
-        private async Task TheContextCanBeRetrieved()
+        private async Task CreateAContext()
         {
-            var getContextQuery = new GetContext { CollectionId = _collectionResult.Result.Id, ContextId = _result.Result };
-            _contextResult = await _mediator.Send(getContextQuery);
-            _contextResult.Should().NotBeNull();
-            _contextResult.Result.Should().NotBeNull();
-            _contextResult.Result.Id.Should().Be(getContextQuery.ContextId);
+            _contextCommand = new CreateContext
+            {
+                Creator = _gamesMaster,
+                Name = _contextName,
+                Description = _contextDescription
+            };
+
+            var quickContextCommand = new QuickContext
+            {
+                Context = _contextCommand
+            };
+
+            var response = await _mediator.Send(quickContextCommand);
+            response.Should().NotBeNull();
+            response.Result.Should().NotBeEmpty();
+            _contextId = response.Result;
+        }
+
+        private async Task TheNewContextCanBeRead()
+        {
+            var contextQuery = new ReadContext { ContextId = _contextId };
+            var response = await _mediator.Send(contextQuery);
+            response.Should().NotBeNull();
+            _context = response.Result;
+            _context.Should().NotBeNull();
+            _context.Id.Should().Be(contextQuery.ContextId);
+        }
+
+        private void TheContextHasNewUnitTypes()
+        {
+            var unitTypes = new List<UnitType>
+            {
+                _scoreUnitType,
+                _doseUnitType,
+                _metersUnitType,
+                _rationUnitType
+            };
+
+            _context.UnitTypes.Select(ut => ut.Name).ShouldAllBeEquivalentTo(unitTypes.Select(ut => ut.Name));
         }
     }
 }

@@ -2,22 +2,16 @@
 {
     using System;
     using System.Collections.Generic;
+    using Item;
+    using Values;
 
-    public class Character
+    public class Character: CharacterEntity
     {
-        public Character(List<Trait> traits)
+        public Character(Guid id, Name name, Description description, ICollection<Trait> traits) : base(id, name, description, traits)
         {
-            Id = Guid.NewGuid();
-            Traits = traits;
+            
         }
 
-        public Guid Id { get; }
-
-        public List<Trait> Traits { get; }
-        
-        internal Character Clone()
-        {
-            return new Character(Traits);
-        }
+        public ICollection<Item> Items { get; } = new List<Item>();
     }
 }

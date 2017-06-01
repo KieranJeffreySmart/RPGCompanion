@@ -1,13 +1,11 @@
-﻿using System.Collections.Generic;
-using RPGCompanion.Domain.Model;
-
-namespace RPGCompanion.Domain.Repository
+﻿namespace RPGCompanion.Domain.Repository
 {
+    using System.Collections.Generic;
+    using Model.Character;
     using Model.Context;
-    using Model.GameEntities;
 
     public interface ICreatureRepository
     {
-        List<Creature> GetAll(Context context);
+        List<Character> GetAll(Context context);
     }
 }

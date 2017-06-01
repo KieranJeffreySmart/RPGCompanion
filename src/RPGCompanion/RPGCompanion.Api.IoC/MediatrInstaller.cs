@@ -4,8 +4,8 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Reflection;
-    using Application.Commands.Handlers;
-    using Application.Mediator;
+    using Application.Context.Handlers;
+    using Application.Domain.Mediator;
     using Castle.MicroKernel.Registration;
     using Castle.MicroKernel.SubSystems.Configuration;
     using Castle.Windsor;
@@ -17,7 +17,7 @@
         public void Install(IWindsorContainer container, IConfigurationStore store)
         {
             container.Register(Component.For<IManagedMediator>().ImplementedBy<CastleManagedMediator>());
-            RegisterInterfaces(typeof(NewContextCollectionHandler).Assembly, container, new List<Type>
+            RegisterInterfaces(typeof(CreateContextHandler).Assembly, container, new List<Type>
             {
                 typeof(IPrivateMessageHandler<,>),
                 typeof(IPrivateMessageHandler<>)

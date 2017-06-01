@@ -10,8 +10,8 @@
     {
         public void Install(IWindsorContainer container, IConfigurationStore store)
         {
-            container.Register(Component.For<IContextCollectionRepository>().ImplementedBy<ContextCollectionRepository>());
             container.Register(Component.For<IStoryRepository>().ImplementedBy<StoryRepository>());
+            container.Register(Component.For<IContextRepository>().ImplementedBy<ContextRepository>());
         }
     }
 }

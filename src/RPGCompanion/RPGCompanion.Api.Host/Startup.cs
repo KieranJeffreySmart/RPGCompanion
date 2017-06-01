@@ -3,7 +3,6 @@
     using System.Net.Http.Formatting;
     using System.Web.Http;
     using IoC;
-    using Middleware;
     using Owin;
 
     public class Startup

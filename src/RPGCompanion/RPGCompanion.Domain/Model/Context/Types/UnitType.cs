@@ -1,15 +1,18 @@
 ﻿namespace RPGCompanion.Domain.Model.Context.Types
 {
-    using DomainCore;
+    using Domain;
     using Values;
 
-    public class UnitType : DomainEntity<long>
+    public class UnitType : DomainValueType
     {
-        public UnitType(long id, Name name) : base(id)
+        public UnitType(Name name, Description description)
         {
             Name = name;
+            Description = description;
         }
 
         public Name Name { get; }
+
+        public Description Description { get; }
     }
 }
