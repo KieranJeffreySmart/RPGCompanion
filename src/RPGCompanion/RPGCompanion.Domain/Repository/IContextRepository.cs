@@ -7,8 +7,8 @@
 
     public interface IContextRepository
     {
-        Task Insert(Context contextCollection);
+        Task Add(Context contextCollection);
         Task<Context> Get(Guid commandId);
-        Task<IEnumerable<Context>> Get();
+        Task<IEnumerable<Context>> GetAll();
     }
 }

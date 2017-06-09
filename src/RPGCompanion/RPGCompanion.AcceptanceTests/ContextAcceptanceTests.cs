@@ -24,11 +24,13 @@
         private readonly Description _contextDescription = new Description("Role Play Books by Steve Jackson and Ian Livingstone");
         private Guid _contextId;
         private Context _context;
-        private List<CharacterTraitSet> _traits;
+        private List<AddCharacterType> _characterTypes;
         private readonly UnitType _scoreUnitType = new UnitType(new Name("Score"), new Description("Character Attribute Scores"));
         private readonly UnitType _doseUnitType = new UnitType(new Name("Dose"), new Description("A Dose of Potion"));
         private readonly UnitType _rationUnitType = new UnitType(new Name("Ration"), new Description("A Dose of Potion"));
         private readonly UnitType _metersUnitType = new UnitType(new Name("Meters"), new Description("Metric Measurement"));
+        private List<AddItemType> _itemTypes;
+        private IEnumerable<Context> _contexts;
 
         public ContextAcceptanceTests()
         {
@@ -40,30 +42,31 @@
         public void CreateAQuickContext()
         {
             this.Given(t => t.AGamesMaster())
-                .And(t => t.ASetOfCharacterTraits())
-                .And(t => t.ASetOfItemTraits())
+                .And(t => t.ASetOfCharacterTypes())
+                .And(t => t.ASetOfItemTypes())
                 .When(t => t.CreateAContext().Wait())
-                .Then(t => t.TheNewContextCanBeRead())
+                .And(t => t.ViewingContexts())
+                .Then(t => t.TheNewContextExists())
                 // .And(t => t.TheContextHasNewUnitTypes())
                 .BDDfy();
         }
 
-        public void ASetOfCharacterTraits()
+        public void ASetOfCharacterTypes()
         {
-            _traits = new List<CharacterTraitSet>
+            _characterTypes = new List<AddCharacterType>
             {
-                new CharacterTraitSet(new Name("Player Character"), PlayerTraits())
+                new AddCharacterType{ Name = new Name("Player Character"), Traits = PlayerTraits() }
             };
         }
 
-        public void ASetOfItemTraits()
+        public void ASetOfItemTypes()
         {
-            _traits = new List<CharacterTraitSet>
+            _itemTypes = new List<AddItemType>
             {
-                new CharacterTraitSet(new Name("Standard Lantern"), StandardLanternTraits()),
-                new CharacterTraitSet(new Name("Standard Sword"), StandardSwordTraits()),
-                new CharacterTraitSet(new Name("Standard Rations"), StandardRationsTraits()),
-                new CharacterTraitSet(new Name("Skill Potion"), StandardPotionTraits())
+                new AddItemType{ Name = new Name("Standard Lantern"), Traits = StandardLanternTraits() },
+                new AddItemType{ Name = new Name("Standard Sword"), Traits = StandardSwordTraits() },
+                new AddItemType{ Name = new Name("Standard Rations"), Traits = StandardRationsTraits() },
+                new AddItemType{ Name = new Name("Skill Potion"), Traits = StandardPotionTraits() }
             };
         }
 
@@ -149,7 +152,9 @@
 
             var quickContextCommand = new QuickContext
             {
-                Context = _contextCommand
+                Context = _contextCommand,
+                CharacterTypes = _characterTypes,
+                ItemTypes = _itemTypes
             };
 
             var response = await _mediator.Send(quickContextCommand);
@@ -158,14 +163,20 @@
             _contextId = response.Result;
         }
 
-        private async Task TheNewContextCanBeRead()
+        private async Task ViewingContexts()
         {
-            var contextQuery = new ReadContext { ContextId = _contextId };
+            var contextQuery = new ViewContexts();
             var response = await _mediator.Send(contextQuery);
             response.Should().NotBeNull();
-            _context = response.Result;
+            _contexts = response.Result;
+        }
+
+        private async Task TheNewContextExists()
+        {
             _context.Should().NotBeNull();
-            _context.Id.Should().Be(contextQuery.ContextId);
+            _context.Id.Should().Be(_contextId);
+            _context.CharacterTypes.Select(ct => ct.Name).ShouldBeEquivalentTo(_characterTypes.Select(ct => ct.Name));
+            _context.ItemTypes.Select(ct => ct.Name).ShouldBeEquivalentTo(_itemTypes.Select(ct => ct.Name));
         }
 
         private void TheContextHasNewUnitTypes()

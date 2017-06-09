@@ -1,11 +1,11 @@
 ﻿namespace RPGCompanion.Application.Narrative
 {
-    using System;
+    using System.Collections.Generic;
     using Domain;
     using RPGCompanion.Domain.Model.Narrative;
 
-    public class GetStory: DomainQuery<Story>
+    public class ViewStories: DomainQuery<IEnumerable<Story>>
     {
-        public Guid Id { get; set; }
+        
     }
 }

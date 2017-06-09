@@ -7,16 +7,16 @@
     using RPGCompanion.Domain.Model.Narrative;
     using RPGCompanion.Domain.Repository;
 
-    public class GetStoriesHandler : IPrivateMessageHandler<GetStories, IEnumerable<Story>>
+    public class ViewStoriesHandler : IPrivateMessageHandler<ViewStories, IEnumerable<Story>>
     {
         private readonly IStoryRepository _repo;
 
-        public GetStoriesHandler(IStoryRepository repo)
+        public ViewStoriesHandler(IStoryRepository repo)
         {
             _repo = repo;
         }
 
-        public async Task<IEnumerable<Story>> Handle(GetStories command)
+        public async Task<IEnumerable<Story>> Handle(ViewStories command)
         {
             return await _repo.Get();
         }

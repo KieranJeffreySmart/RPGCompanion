@@ -18,18 +18,4 @@ namespace RPGCompanion.Domain.Model.Context
 
         public Name Name { get; }
     }
-
-    public class CharacterTraitSet: DomainValueType
-    {
-        private IReadOnlyList<TraitGroup> _traitGroups = new List<TraitGroup>();
-
-        public CharacterTraitSet(Name name, List<TraitGroup> traits)
-        {
-            Name = name;
-        }
-
-        public IReadOnlyList<TraitGroup> TraitGroups => _traitGroups;
-
-        public Name Name { get; }
-    }
 }

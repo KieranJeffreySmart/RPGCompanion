@@ -16,6 +16,19 @@
         public async Task<Guid> Handle(QuickContext command)
         {
             var contextResponse = await _mediator.Send(command.Context);
+
+            foreach (var commandItemType in command.ItemTypes)
+            {
+                commandItemType.ContextId = contextResponse.Result;
+                await _mediator.Send(commandItemType);
+            }
+
+            foreach (var commandCharacterType in command.CharacterTypes)
+            {
+                commandCharacterType.ContextId = contextResponse.Result;
+                await _mediator.Send(commandCharacterType);
+            }
+
             return contextResponse.Result;
         }
     }

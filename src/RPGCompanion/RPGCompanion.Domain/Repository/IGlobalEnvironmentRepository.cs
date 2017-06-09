@@ -3,12 +3,12 @@
     using System;
     using System.Collections.Generic;
     using System.Threading.Tasks;
-    using Model.Context;
     using Model.Setting.Location;
 
     public interface IGlobalEnvironmentRepository
     {
-        List<GlobalEnvironment> GetAll(Context context);
+        Task Add(GlobalEnvironment environment);
+        Task<IEnumerable<GlobalEnvironment>> GetAll();
         Task<GlobalEnvironment> Get(Guid environmentId);
     }
 }

@@ -1,4 +1,4 @@
-namespace RPGCompanion.Infrastructure.DataAccess
+namespace RPGCompanion.Infrastructure.DataAccess.Context
 {
     using System;
     using System.Collections.Generic;
@@ -10,7 +10,7 @@ namespace RPGCompanion.Infrastructure.DataAccess
     public class ContextRepository : IContextRepository
     {
         private readonly List<Context> _inMenoryStorage = new List<Context>();
-        public Task Insert(Context context)
+        public Task Add(Context context)
         {
             _inMenoryStorage.Add(context);
             return Task.CompletedTask;
@@ -21,7 +21,7 @@ namespace RPGCompanion.Infrastructure.DataAccess
             return Task.FromResult(_inMenoryStorage.FirstOrDefault(e => e.Id == id));
         }
 
-        public Task<IEnumerable<Context>> Get()
+        public Task<IEnumerable<Context>> GetAll()
         {
             return Task.FromResult<IEnumerable<Context>>(_inMenoryStorage);
         }

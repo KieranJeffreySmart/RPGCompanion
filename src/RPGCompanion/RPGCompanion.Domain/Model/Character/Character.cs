@@ -2,16 +2,16 @@
 {
     using System;
     using System.Collections.Generic;
-    using Item;
+    using System.Linq;
     using Values;
 
-    public class Character: CharacterEntity
+    public class Character: NamedEntity<Guid>
     {
-        public Character(Guid id, Name name, Description description, ICollection<Trait> traits) : base(id, name, description, traits)
+        public Character(Guid id, Name name, Description description, IEnumerable<TraitGroup> traits) : base(id, name, description)
         {
-            
+            Traits = traits.ToList();
         }
 
-        public ICollection<Item> Items { get; } = new List<Item>();
+        public ICollection<TraitGroup> Traits { get; }
     }
 }

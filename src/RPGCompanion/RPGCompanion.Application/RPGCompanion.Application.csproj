@@ -40,7 +40,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Character\QuickCharacter.cs" />
+    <Compile Include="Character\Handlers\CreateCharacterHander.cs" />
+    <Compile Include="Character\Handlers\ViewCharactersHandler.cs" />
+    <Compile Include="Character\ViewCharacters.cs" />
+    <Compile Include="Context\AddCharacterType.cs" />
+    <Compile Include="Context\AddItemType.cs" />
+    <Compile Include="Context\Handlers\AddCharacterTypeHandler.cs" />
+    <Compile Include="Context\Handlers\AddItemTypeHandler.cs" />
     <Compile Include="Context\Handlers\AddUnitTypeHandler.cs" />
     <Compile Include="Context\Handlers\QuickContextHandler.cs" />
     <Compile Include="Context\Handlers\ViewContextsHandler.cs" />
@@ -48,24 +54,17 @@
     <Compile Include="Domain\DomainCommand.cs" />
     <Compile Include="Context\Handlers\CreateContextHandler.cs" />
     <Compile Include="NamedCommand.cs" />
-    <Compile Include="Narrative\NewStoryHandler.cs" />
-    <Compile Include="Narrative\QuickStartStoryHandler.cs" />
-    <Compile Include="Narrative\StartStoryHandler.cs" />
-    <Compile Include="Setting\NewAction.cs" />
+    <Compile Include="Narrative\Handlers\NewStoryHandler.cs" />
+    <Compile Include="Narrative\ViewStories.cs" />
+    <Compile Include="Setting\Handlers\NewGlobalEnvironmentHandler.cs" />
+    <Compile Include="Setting\Handlers\ViewGlobalEnvironmentsHandler.cs" />
     <Compile Include="Character\CreateCharacter.cs" />
-    <Compile Include="Setting\NewEvent.cs" />
     <Compile Include="Setting\NewGlobalEnvironment.cs" />
-    <Compile Include="Setting\NewLocalEnvironment.cs" />
-    <Compile Include="Setting\NewLocation.cs" />
-    <Compile Include="Setting\NewMoment.cs" />
-    <Compile Include="Character\NewItem.cs" />
+    <Compile Include="Item\CreateItem.cs" />
     <Compile Include="Context\AddUnitType.cs" />
     <Compile Include="Context\QuickContext.cs" />
-    <Compile Include="Narrative\QuickStartStory.cs" />
-    <Compile Include="Narrative\StartScene.cs" />
     <Compile Include="Context\NewContext.cs" />
     <Compile Include="Narrative\NewStory.cs" />
-    <Compile Include="Narrative\StartStory.cs" />
     <Compile Include="Domain\DomainEvent.cs" />
     <Compile Include="Domain\Mediator\IManagedMediator.cs" />
     <Compile Include="Domain\Mediator\IPrivateMessage.cs" />
@@ -76,13 +75,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Domain\DomainQuery.cs" />
     <Compile Include="Context\ReadContext.cs" />
-    <Compile Include="Narrative\GetStories.cs" />
-    <Compile Include="Narrative\GetStory.cs" />
     <Compile Include="Context\Handlers\ReadContextHandler.cs" />
     <Compile Include="Narrative\Handlers\GetStoriesHandler.cs" />
-    <Compile Include="Narrative\Handlers\GetStoryHandler.cs" />
-    <Compile Include="Narrative\ReadStory.cs" />
     <Compile Include="Domain\DomainResponse.cs" />
+    <Compile Include="Item\Handlers\CreateItemHandler.cs" />
+    <Compile Include="Item\Handlers\ViewItwmsHandler.cs" />
+    <Compile Include="Item\ViewItwms.cs" />
+    <Compile Include="Setting\ViewGlobalEnvironments.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\RPGCompanion.Domain\RPGCompanion.Domain.csproj">
@@ -91,8 +90,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Character\Handlers\" />
-    <Folder Include="Narrative\Plot\" />
+    <Folder Include="Creatures\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

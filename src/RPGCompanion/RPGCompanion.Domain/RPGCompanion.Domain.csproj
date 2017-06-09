@@ -40,10 +40,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\Context\Types\ItemType.cs" />
+    <Compile Include="Model\Context\Types\CharacterType.cs" />
     <Compile Include="Model\Context\ContextEntity.cs" />
     <Compile Include="Model\Context\Creator.cs" />
     <Compile Include="Model\Context\Trait.cs" />
     <Compile Include="Model\Context\TraitGroup.cs" />
+    <Compile Include="Model\Creature\Creature.cs" />
     <Compile Include="Model\NamedEntity.cs" />
     <Compile Include="Model\Character\TraitGroup.cs" />
     <Compile Include="Model\Character\Trait.cs" />
@@ -51,7 +54,6 @@
     <Compile Include="Model\Context\Types\UnitType.cs" />
     <Compile Include="Domain\DomainEntity.cs" />
     <Compile Include="Domain\ValueType.cs" />
-    <Compile Include="Model\Item\Container.cs" />
     <Compile Include="Model\Character\Character.cs" />
     <Compile Include="Model\Character\CharacterEntity.cs" />
     <Compile Include="Model\Item\Item.cs" />
@@ -72,10 +74,12 @@
     <Compile Include="Model\Values\Unit.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\IActionRepository.cs" />
+    <Compile Include="Repository\ICharacterRepository.cs" />
     <Compile Include="Repository\IContextRepository.cs" />
     <Compile Include="Repository\ICreatureRepository.cs" />
     <Compile Include="Repository\IEventRepository.cs" />
     <Compile Include="Repository\IGlobalEnvironmentRepository.cs" />
+    <Compile Include="Repository\IItemRepository.cs" />
     <Compile Include="Repository\ILocalEnvironmentRepository.cs" />
     <Compile Include="Repository\ILocationRepository.cs" />
     <Compile Include="Repository\IStoryRepository.cs" />
@@ -84,8 +88,6 @@
   <ItemGroup>
     <Folder Include="Model\Style\" />
     <Folder Include="Model\Theme\" />
-    <Folder Include="Polotics\" />
-    <Folder Include="Setting\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

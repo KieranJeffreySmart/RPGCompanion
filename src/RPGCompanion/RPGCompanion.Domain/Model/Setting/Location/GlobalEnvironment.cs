@@ -2,10 +2,11 @@
 {
     using System;
     using Domain;
+    using Values;
 
-    public class GlobalEnvironment: DomainEntity<Guid>
+    public class GlobalEnvironment: NamedEntity<Guid>
     {
-        public GlobalEnvironment(Guid id) : base(id)
+        public GlobalEnvironment(Guid id, Name name, Description description) : base(id, name, description)
         {
         }
     }

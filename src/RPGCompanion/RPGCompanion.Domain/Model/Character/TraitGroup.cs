@@ -6,7 +6,7 @@ namespace RPGCompanion.Domain.Model.Character
 
     public class TraitGroup: DomainValueType
     {
-        public TraitGroup(IReadOnlyCollection<Trait> traits, Name name)
+        public TraitGroup(Name name, IReadOnlyCollection<Trait> traits)
         {
             Traits = traits;
             Name = name;

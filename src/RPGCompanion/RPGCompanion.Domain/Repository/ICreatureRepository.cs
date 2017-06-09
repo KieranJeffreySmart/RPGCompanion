@@ -1,11 +1,10 @@
 ﻿namespace RPGCompanion.Domain.Repository
 {
     using System.Collections.Generic;
-    using Model.Character;
-    using Model.Context;
+    using Model.Creature;
 
     public interface ICreatureRepository
     {
-        List<Character> GetAll(Context context);
+        List<Creature> GetAll();
     }
 }

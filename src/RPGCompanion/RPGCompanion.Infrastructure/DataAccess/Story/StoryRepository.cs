@@ -1,4 +1,4 @@
-﻿namespace RPGCompanion.Infrastructure.DataAccess
+﻿namespace RPGCompanion.Infrastructure.DataAccess.Story
 {
     using System;
     using System.Collections.Generic;

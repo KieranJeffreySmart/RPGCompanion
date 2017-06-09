@@ -40,7 +40,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataAccess\Character\CharacterRepository.cs" />
     <Compile Include="DataAccess\Context\ContextRepository.cs" />
+    <Compile Include="DataAccess\Item\ItemRepository.cs" />
+    <Compile Include="DataAccess\Setting\GlobalEnvironmentRepository.cs" />
     <Compile Include="DataAccess\Story\StoryRepository.cs" />
     <Compile Include="Mediator\CastleManagedMediator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -55,5 +58,6 @@
       <Name>RPGCompanion.Domain</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

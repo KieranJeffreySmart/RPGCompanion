@@ -7,8 +7,6 @@
     public class NewStory: DomainCommand<Guid>
     {
         public Name Name { get; set; }
-
-        public Guid ContextId { get; set; }
         public Description Description { get; set; }
     }
 }

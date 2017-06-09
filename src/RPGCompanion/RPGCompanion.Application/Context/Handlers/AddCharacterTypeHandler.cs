@@ -4,19 +4,19 @@
     using Domain.Mediator;
     using RPGCompanion.Domain.Repository;
 
-    public class AddUnitTypeHandler : IPrivateMessageHandler<AddUnitType>
+    public class AddCharacterTypeHandler : IPrivateMessageHandler<AddCharacterType>
     {
         private readonly IContextRepository _repo;
 
-        public AddUnitTypeHandler(IContextRepository repo)
+        public AddCharacterTypeHandler(IContextRepository repo)
         {
             _repo = repo;
         }
 
-        public async Task Handle(AddUnitType command)
+        public async Task Handle(AddCharacterType command)
         {
             var context = await _repo.Get(command.ContextId);
-            context.AddUnitType(command.Name, command.Description);
+            context.AddCharacterType(command.Name, command.Traits);
         }
     }
 }
