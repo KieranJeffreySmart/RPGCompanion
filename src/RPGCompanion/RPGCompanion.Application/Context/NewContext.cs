@@ -9,6 +9,5 @@
     {
         public Name Name { get; set; }
         public Description Description { get; set; }
-        public Creator Creator { get; set; }
     }
 }

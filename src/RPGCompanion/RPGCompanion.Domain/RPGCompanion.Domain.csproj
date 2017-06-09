@@ -40,13 +40,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Domain\IDomainEvent.cs" />
+    <Compile Include="Domain\IDomainEventProvider.cs" />
     <Compile Include="Model\Context\Types\ItemType.cs" />
     <Compile Include="Model\Context\Types\CharacterType.cs" />
-    <Compile Include="Model\Context\ContextEntity.cs" />
     <Compile Include="Model\Context\Creator.cs" />
     <Compile Include="Model\Context\Trait.cs" />
     <Compile Include="Model\Context\TraitGroup.cs" />
     <Compile Include="Model\Creature\Creature.cs" />
+    <Compile Include="Model\NamedAggregate.cs" />
     <Compile Include="Model\NamedEntity.cs" />
     <Compile Include="Model\Character\TraitGroup.cs" />
     <Compile Include="Model\Character\Trait.cs" />

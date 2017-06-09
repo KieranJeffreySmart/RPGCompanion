@@ -19,7 +19,6 @@
         private CreateContext _contextCommand;
 
         private readonly IManagedMediator _mediator;
-        private Creator _gamesMaster;
         private readonly Name _contextName = new Name("Fighting Fantasy Books");
         private readonly Description _contextDescription = new Description("Role Play Books by Steve Jackson and Ian Livingstone");
         private Guid _contextId;
@@ -39,15 +38,14 @@
         }
 
         [Fact]
-        public void CreateAQuickContext()
+        public void CreateAContext()
         {
-            this.Given(t => t.AGamesMaster())
-                .And(t => t.ASetOfCharacterTypes())
+            this.Given(t => t.ASetOfCharacterTypes())
                 .And(t => t.ASetOfItemTypes())
-                .When(t => t.CreateAContext().Wait())
-                .And(t => t.ViewingContexts())
+                .When(t => t.CreatingAContext().Wait())
+                .And(t => t.ViewingAllContexts().Wait())
                 .Then(t => t.TheNewContextExists())
-                // .And(t => t.TheContextHasNewUnitTypes())
+                .And(t => t.TheContextHasNewUnitTypes())
                 .BDDfy();
         }
 
@@ -136,16 +134,10 @@
             };
         }
 
-        private void AGamesMaster()
-        {
-            _gamesMaster = new Creator(Guid.NewGuid());
-        }
-
-        private async Task CreateAContext()
+        private async Task CreatingAContext()
         {
             _contextCommand = new CreateContext
             {
-                Creator = _gamesMaster,
                 Name = _contextName,
                 Description = _contextDescription
             };
@@ -163,20 +155,21 @@
             _contextId = response.Result;
         }
 
-        private async Task ViewingContexts()
+        private async Task ViewingAllContexts()
         {
             var contextQuery = new ViewContexts();
             var response = await _mediator.Send(contextQuery);
             response.Should().NotBeNull();
             _contexts = response.Result;
+            _context = _contexts.SingleOrDefault(c => c.Id == _contextId);
         }
 
-        private async Task TheNewContextExists()
+        private void TheNewContextExists()
         {
             _context.Should().NotBeNull();
-            _context.Id.Should().Be(_contextId);
-            _context.CharacterTypes.Select(ct => ct.Name).ShouldBeEquivalentTo(_characterTypes.Select(ct => ct.Name));
-            _context.ItemTypes.Select(ct => ct.Name).ShouldBeEquivalentTo(_itemTypes.Select(ct => ct.Name));
+            _context?.Id.Should().Be(_contextId);
+            _context?.CharacterTypes.Select(ct => ct.Name).ShouldBeEquivalentTo(_characterTypes.Select(ct => ct.Name));
+            _context?.ItemTypes.Select(ct => ct.Name).ShouldBeEquivalentTo(_itemTypes.Select(ct => ct.Name));
         }
 
         private void TheContextHasNewUnitTypes()
@@ -189,7 +182,8 @@
                 _rationUnitType
             };
 
-            _context.UnitTypes.Select(ut => ut.Name).ShouldAllBeEquivalentTo(unitTypes.Select(ut => ut.Name));
+            _context.Should().NotBeNull();
+            _context?.UnitTypes.Select(ut => ut.Name).ShouldAllBeEquivalentTo(unitTypes.Select(ut => ut.Name));
         }
     }
 }

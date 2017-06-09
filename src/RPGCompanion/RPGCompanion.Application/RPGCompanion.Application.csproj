@@ -53,6 +53,8 @@
     <Compile Include="Context\ViewContexts.cs" />
     <Compile Include="Domain\DomainCommand.cs" />
     <Compile Include="Context\Handlers\CreateContextHandler.cs" />
+    <Compile Include="Domain\DomainEvent.cs" />
+    <Compile Include="Domain\DomainEventPublisher.cs" />
     <Compile Include="NamedCommand.cs" />
     <Compile Include="Narrative\Handlers\NewStoryHandler.cs" />
     <Compile Include="Narrative\ViewStories.cs" />
@@ -65,7 +67,6 @@
     <Compile Include="Context\QuickContext.cs" />
     <Compile Include="Context\NewContext.cs" />
     <Compile Include="Narrative\NewStory.cs" />
-    <Compile Include="Domain\DomainEvent.cs" />
     <Compile Include="Domain\Mediator\IManagedMediator.cs" />
     <Compile Include="Domain\Mediator\IPrivateMessage.cs" />
     <Compile Include="Domain\Mediator\IPrivateMessageHandler.cs" />

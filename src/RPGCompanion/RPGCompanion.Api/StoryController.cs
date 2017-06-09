@@ -26,7 +26,7 @@
         [Route("api/v1/Stories")]
         public async Task<IHttpActionResult> Get()
         {
-            var response = await _mediator.Send(new GetStories());
+            var response = await _mediator.Send(new ViewStories());
 
             if (response is FailedResponse<IEnumerable<Story>>)
             {
@@ -40,31 +40,7 @@
 
             return ResponseMessage(message);
         }
-
-        [HttpGet]
-        [Route("api/v1/Stories/{id}")]
-        public async Task<IHttpActionResult> Get(Guid? id)
-        {
-            if (!id.HasValue)
-            {
-                return new ResponseMessageResult(new HttpResponseMessage { StatusCode = HttpStatusCode.NotFound });
-            }
-
-            var response = await _mediator.Send(new GetStory { Id = id.Value });
-
-            if (response is FailedResponse<Story>)
-            {
-                return new ResponseMessageResult(new HttpResponseMessage { StatusCode = HttpStatusCode.NotFound });
-            }
-
-            var message = new HttpResponseMessage(HttpStatusCode.OK)
-            {
-                Content = new ObjectContent<Story>(response.Result, new JsonMediaTypeFormatter())
-            };
-
-            return ResponseMessage(message);
-        }
-
+        
         [HttpPost]
         [Route("api/v1/Stories")]
         public async Task<IHttpActionResult> Post([FromBody] NewStory newMessage)

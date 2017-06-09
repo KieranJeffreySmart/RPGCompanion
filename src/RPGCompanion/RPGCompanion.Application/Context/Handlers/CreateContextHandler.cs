@@ -18,7 +18,7 @@
         public async Task<Guid> Handle(CreateContext command)
         {
             var newId = Guid.NewGuid();
-            await _repo.Add(new Context(newId, command.Name, command.Description, command.Creator));
+            await _repo.Add(new Context(newId, command.Name, command.Description));
             return newId;
         }
     }

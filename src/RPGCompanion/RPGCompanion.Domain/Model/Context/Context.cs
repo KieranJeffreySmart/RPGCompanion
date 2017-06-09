@@ -2,16 +2,17 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Linq;
     using Types;
     using Values;
 
-    public class Context: ContextEntity<Guid>
+    public class Context: NamedAggregate
     {
         private readonly List<UnitType> _unitTypes = new List<UnitType>();
         private readonly List<CharacterType> _characterTypes = new List<CharacterType>();
         private readonly List<ItemType> _itemTypes = new List<ItemType>();
         
-        public Context(Guid id, Name name, Description description, Creator creator) : base(id, name, description, creator)
+        public Context(Guid id, Name name, Description description) : base(id, name, description)
         {
         }
 
@@ -24,19 +25,36 @@
             _unitTypes.Add(new UnitType(name, description));
         }
 
-        public void AddCharacterTypeTraits(CharacterType type)
-        {
-            _characterTypes.Add(type);
-        }
-
         public void AddItemType(Name name, IEnumerable<TraitGroup> traits)
         {
-            _itemTypes.Add(new ItemType(name, traits));
+            var traitList = traits.ToList();
+            _itemTypes.Add(new ItemType(name, traitList));
+
+            foreach (var unitType in traitList.SelectMany(tg => tg.Traits.Select(t => t.Value.UnitType)))
+            {
+                if (_unitTypes.Any(ut => ut.Name == unitType.Name))
+                {
+                    continue;
+                }
+
+                AddUnitType(unitType.Name, unitType.Description);
+            }
         }
 
         public void AddCharacterType(Name name, IEnumerable<TraitGroup> traits)
         {
-            _characterTypes.Add(new CharacterType(name, traits));
+            var traitList = traits.ToList();
+            _characterTypes.Add(new CharacterType(name, traitList));
+
+            foreach (var unitType in traitList.SelectMany(tg => tg.Traits.Select(t => t.Value.UnitType)))
+            {
+                if (_unitTypes.Any(ut => ut.Name == unitType.Name))
+                {
+                    continue;
+                }
+
+                AddUnitType(unitType.Name, unitType.Description);
+            }
         }
     }
 }
