@@ -3,7 +3,6 @@
     using System;
     using System.Threading.Tasks;
     using Application.Character;
-    using Domain.Model.Values;
     using TestStack.BDDfy;
     using Xunit;
     using System.Collections.Generic;
@@ -12,6 +11,7 @@
     using Domain.Model.Character;
     using Api.IoC;
     using Application.Domain.Mediator;
+    using RPGCompanion.AcceptanceTests.Data;
 
     public class CharacterAcceptanceTests
     {
@@ -40,16 +40,12 @@
 
         private void ACharacter()
         {
-            _characterCommand = new CreateCharacter
-            {
-                Name = new Name("Conan"),
-                Description = new Description("The worlds most famous barbarian")
-            };
+            _characterCommand = SampleCharacters.CreateOpheliaLapwigCommand;
         }
 
         private void TheCharacterHasTraits()
         {
-            _traits = new List<TraitGroup>();
+            _traits = SampleCharacters.ConansTraits;
         }
         
         private async Task TheCharacterIsCreated()

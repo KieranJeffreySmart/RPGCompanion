@@ -13,21 +13,16 @@
     using FluentAssertions;
     using TestStack.BDDfy;
     using Xunit;
+    using RPGCompanion.AcceptanceTests.Data;
 
     public class ContextAcceptanceTests
     {
         private CreateContext _contextCommand;
 
         private readonly IManagedMediator _mediator;
-        private readonly Name _contextName = new Name("Fighting Fantasy Books");
-        private readonly Description _contextDescription = new Description("Role Play Books by Steve Jackson and Ian Livingstone");
         private Guid _contextId;
         private Context _context;
         private List<AddCharacterType> _characterTypes;
-        private readonly UnitType _scoreUnitType = new UnitType(new Name("Score"), new Description("Character Attribute Scores"));
-        private readonly UnitType _doseUnitType = new UnitType(new Name("Dose"), new Description("A Dose of Potion"));
-        private readonly UnitType _rationUnitType = new UnitType(new Name("Ration"), new Description("A Dose of Potion"));
-        private readonly UnitType _metersUnitType = new UnitType(new Name("Meters"), new Description("Metric Measurement"));
         private List<AddItemType> _itemTypes;
         private IEnumerable<Context> _contexts;
 
@@ -51,96 +46,17 @@
 
         public void ASetOfCharacterTypes()
         {
-            _characterTypes = new List<AddCharacterType>
-            {
-                new AddCharacterType{ Name = new Name("Player Character"), Traits = PlayerTraits() }
-            };
+            _characterTypes = FightingFantasyContext.FightingFantasyCharacterTypeCommands;
         }
 
         public void ASetOfItemTypes()
         {
-            _itemTypes = new List<AddItemType>
-            {
-                new AddItemType{ Name = new Name("Standard Lantern"), Traits = StandardLanternTraits() },
-                new AddItemType{ Name = new Name("Standard Sword"), Traits = StandardSwordTraits() },
-                new AddItemType{ Name = new Name("Standard Rations"), Traits = StandardRationsTraits() },
-                new AddItemType{ Name = new Name("Skill Potion"), Traits = StandardPotionTraits() }
-            };
-        }
-
-        private List<TraitGroup> PlayerTraits()
-        {
-            return new List<TraitGroup>
-            {
-                new TraitGroup(new Name("Scores"), new List<Trait>
-                    {
-                        new Trait(new Name("Skill"), new Unit(_scoreUnitType, 11)),
-                        new Trait(new Name("Stamina"), new Unit(_scoreUnitType, 11)),
-                        new Trait(new Name("Luck"), new Unit(_scoreUnitType, 11))
-                    })
-            };
-        }
-
-        private List<TraitGroup> StandardPotionTraits()
-        {
-            return new List<TraitGroup>
-            {
-                new TraitGroup(new Name("Unit"),
-                    new List<Trait>
-                    {
-                        new Trait(new Name("Doses"), new Unit(_doseUnitType, 1))
-                    })
-            };
-        }
-
-        private List<TraitGroup> StandardRationsTraits()
-        {
-            return new List<TraitGroup>
-            {
-                new TraitGroup(new Name("Scores"),
-                    new List<Trait>
-                    {
-                        new Trait(new Name("Stamina"), new Unit(_scoreUnitType, 99))
-                    }),
-                new TraitGroup(new Name("Unit"),
-                    new List<Trait>
-                    {
-                        new Trait(new Name("Portions"), new Unit(_rationUnitType, 1))
-                    })
-            };
-        }
-
-        private List<TraitGroup> StandardLanternTraits()
-        {
-            return new List<TraitGroup>
-            {
-                new TraitGroup(new Name("Environmental"),
-                    new List<Trait>
-                    {
-                        new Trait(new Name("Emit Light"), new Unit(_metersUnitType, 5))
-                    })
-            };
-        }
-
-        private List<TraitGroup> StandardSwordTraits()
-        {
-            return new List<TraitGroup>
-            {
-                new TraitGroup(new Name("Scores"),
-                    new List<Trait>
-                    {
-                        new Trait(new Name("Stamina"), new Unit(_scoreUnitType, -2))
-                    })
-            };
+            _itemTypes = FightingFantasyContext.FightingFantasyItemTypeCommands;
         }
 
         private async Task CreatingAContext()
         {
-            _contextCommand = new CreateContext
-            {
-                Name = _contextName,
-                Description = _contextDescription
-            };
+            _contextCommand = FightingFantasyContext.FightingFantasyContextCommand;
 
             var quickContextCommand = new QuickContext
             {
@@ -176,10 +92,10 @@
         {
             var unitTypes = new List<UnitType>
             {
-                _scoreUnitType,
-                _doseUnitType,
-                _metersUnitType,
-                _rationUnitType
+                FightingFantasyContext.ScoreUnitType,
+                FightingFantasyContext.DoseUnitType,
+                FightingFantasyContext.MetersUnitType,
+                FightingFantasyContext.RationUnitType
             };
 
             _context.Should().NotBeNull();

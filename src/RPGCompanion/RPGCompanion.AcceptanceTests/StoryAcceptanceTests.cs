@@ -5,15 +5,8 @@
     using System.Linq;
     using System.Threading.Tasks;
     using Api.IoC;
-    using Application.Character;
-    using Application.Context;
     using Application.Domain.Mediator;
-    using Application.Item;
     using Application.Narrative;
-    using Application.Setting;
-    using Domain.Model.Context;
-    using Domain.Model.Narrative;
-    using Domain.Model.Narrative.Plot;
     using Domain.Model.Values;
     using FluentAssertions;
     using TestStack.BDDfy;
@@ -34,13 +27,57 @@
         }
 
         [Fact]
-        public void StartAStory()
+        public void CreateAStory()
         {
             this.Given(t => t.AStory())
+                .And(t => t.AContext())
+                .And(t => t.ASetting())
                 .When(t => t.TheStoryIsCreated().Wait())
                 .And(t => t.ViewingAllStories().Wait())
                 .Then(t => t.TheNewStoryExists())
                 .BDDfy();
+        }
+
+        [Fact]
+        public void StartAStory()
+        {
+            this.Given(t => t.AStoryIsOpen())
+                .When(t => t.StartingTheStory())
+                .Then(t => t.ICanReadADescriptinoOfTheStory())
+                .And(t => t.ICanReadADescriptionOfTheSetting())
+                .And(t => t.IAmAbleToCreateTheOpeningScene())
+                .BDDfy();
+        }
+        
+        [Fact]
+        public void Character_AddedToStory()
+        {
+            this.Given(t => t.AStoryIsOpen())
+                .And(t => t.ACharacterExists())
+                .When(t => t.TheCharacterIsAddedToTheStory())
+                .And(t => t.ACharacterTypeIsSelected())
+                .Then(t => t.NewTraitsBecomeVisible())
+                .BDDfy();
+        }
+
+        private void ACharacterExists()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void TheCharacterIsAddedToTheStory()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void ACharacterTypeIsSelected()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void NewTraitsBecomeVisible()
+        {
+            throw new NotImplementedException();
         }
 
         private void AStory()
@@ -50,6 +87,16 @@
                 Name = new Name("Warlock of Firetop Mountain"),
                 Description = new Description("Our first S.J. and I.L. book")
             };
+        }
+
+        private void AContext()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void ASetting()
+        {
+            throw new NotImplementedException();
         }
 
         private async Task TheStoryIsCreated()
@@ -73,6 +120,31 @@
             _stories.Should().NotBeNull();
             _stories.Select(i => i.Id).Single().Should().Be(_storyId);
             _stories.Select(i => i.Name).Single().Should().Be(_story.Name);
+        }
+
+        private void AStoryIsOpen()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void StartingTheStory()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void ICanReadADescriptinoOfTheStory()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void ICanReadADescriptionOfTheSetting()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void IAmAbleToCreateTheOpeningScene()
+        {
+            throw new NotImplementedException();
         }
     }
 }
